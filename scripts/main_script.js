@@ -85,11 +85,12 @@ async function loadArticles() {
 
     pageElements.content.ontransitionend = () => {
       pageElements.content.style.display = 'none';
+      pageElements.content.style.opacity = 1;
       pageElements.buttonForArticles.style.display = 'none';
 
-      pageElements.content.style.opacity = 1;
+      article.className = 'content_article-fullsize';
+      document.getElementById('preview-hidden-text').hidden = false;
 
-      article.style.margin = '2rem';
       pageElements.main.append(article);
     }
   });
@@ -97,6 +98,9 @@ async function loadArticles() {
   //Push article
   pageElements.content.append(article);
 }
+
+//Call for first article
+loadArticles();
 
 // Event to load more articles
 pageElements.buttonForArticles.addEventListener('click', function () {
