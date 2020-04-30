@@ -46,43 +46,57 @@ class ArticlesPreviews extends HTMLElement {
   constructor() {
     super();
 
-    // Create and style element for loading more articles
+    // Create and style button for loading more articles
     const buttonForMoreArticle = document.createElement('i');
     buttonForMoreArticle.className = 'fas fa-plus';
 
-    // Add event that will add article and scroll it into view
+    // Scroll article into view
     buttonForMoreArticle.addEventListener('click', function () {
       ArticlesPreviews.loadArticles();
       buttonForMoreArticle.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Append element into the page
+    // Append button into the page
     this.after(buttonForMoreArticle);
 
     // Intial article load
     ArticlesPreviews.loadArticles();
   }
 
-  // Load a new article
-  static async loadArticles() {
-    const element = document.querySelector('.content');
+  static element = document.querySelector('.content');
 
-    // Get not used article
+  //// Get article that is not used on the page
+  static getNotUsedArticle() {
     let notUserArticle;
+
     for (let article of database.articles) {
-      if (!element.querySelector(`[name="${article.name}"]`)) {
+      if (!this.element.querySelector(`[name="${article.name}"]`)) {
         notUserArticle = article;
-        break;
+        return notUserArticle;
       }
     }
+  }
+
+  // Load a new article
+  static async loadArticles() {
+    //get not used article text
+    const notUsedArticle = this.getNotUsedArticle();
 
     // Get response from server with article html and add it on the page
-    const response = await fetch(`resources/articles/${notUserArticle.name}.html`);
+    const response = await fetch(`resources/articles/${notUsedArticle.name}.html`);
     const htmlText = await response.text();
-    element.insertAdjacentHTML('beforeEnd', htmlText);
 
-    // Set name for atricle (used for checking if it's on the page)
-    element.lastElementChild.setAttribute('name', notUserArticle.name);
+    // Create article and push it on the page
+    const article = document.createElement('article');
+    article.innerHTML = htmlText;
+    this.element.append(article);
+
+    this.setUpArticle(article);
+  }
+
+  static setUpArticle(articleElement) {
+    //Set name for checking unique
+    article.setAttribute('name', notUserArticle.name);
   }
 }
 
