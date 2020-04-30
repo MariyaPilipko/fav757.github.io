@@ -198,7 +198,12 @@ main {
 .content_article_preview-text h3{
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  cursor: pointer;
  }
+
+.content_article_preview-text h3:hover{
+  background-color: rgb(235, 235, 235);
+}
 
 .content .fas, .fa-plus {
   font-size: 3rem;

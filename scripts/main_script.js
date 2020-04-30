@@ -63,9 +63,10 @@ class ArticlesPreviews extends HTMLElement {
     ArticlesPreviews.loadArticles();
   }
 
+  // Parent element for articles
   static element = document.querySelector('.content');
 
-  //// Get article that is not used on the page
+  // Get article that is not used on the page
   static getNotUsedArticle() {
     let notUserArticle;
 
@@ -86,13 +87,21 @@ class ArticlesPreviews extends HTMLElement {
     const response = await fetch(`resources/articles/${notUsedArticle.name}.html`);
     const htmlText = await response.text();
 
-    // Create article and push it on the page
+    // Create article and add text to it
     const article = document.createElement('article');
     article.innerHTML = htmlText;
 
+    // Set name and class for article
     article.setAttribute('name', notUsedArticle.name);
     article.className = 'content_article';
 
+    // Open aricle event
+    const articleHeader = article.querySelector('h3');
+    articleHeader.addEventListener('click', function (event) {
+      alert('hello')
+    });
+
+    //Push article
     this.element.append(article);
   }
 }
