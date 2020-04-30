@@ -144,13 +144,13 @@ mark {
   color: var(--main-orange);
 }
 
+/*Content section*/
 main {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
-/*Content section*/
 .content {
   padding: 0 10%;
 }
@@ -199,12 +199,15 @@ main {
   margin-bottom: 1rem;
  }
 
- /*Button for more articles section*/
- .content .fas, .fa-plus{
+.content .fas, .fa-plus {
   font-size: 3rem;
   color: gray;
   margin-bottom: 2rem;
  }
+
+.content .fas, .fa-plus:hover {
+  transform: scale(1.2);
+}
 
  /*Footer section*/
 footer {
