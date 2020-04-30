@@ -46,13 +46,17 @@ class ArticlesPreviews extends HTMLElement {
   constructor() {
     super();
 
-    // Create element that will load more articles
+    // Create and style element for loading more articles
     const buttonForMoreArticle = document.createElement('i');
     buttonForMoreArticle.className = 'fas fa-plus';
+
+    // Add event that will add article and scroll it into view
     buttonForMoreArticle.addEventListener('click', function () {
       ArticlesPreviews.loadArticles();
       buttonForMoreArticle.scrollIntoView({ behavior: 'smooth' });
     });
+
+    // Append element into the page
     this.after(buttonForMoreArticle);
 
     // Intial article load
