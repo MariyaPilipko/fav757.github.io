@@ -49,6 +49,7 @@ class ArticlesPreviews extends HTMLElement {
     // Create and style button for loading more articles
     const buttonForMoreArticle = document.createElement('i');
     buttonForMoreArticle.className = 'fas fa-plus';
+    buttonForMoreArticle.id = 'plus-button';
 
     // Scroll article into view
     buttonForMoreArticle.addEventListener('click', function () {
@@ -97,8 +98,20 @@ class ArticlesPreviews extends HTMLElement {
 
     // Open aricle event
     const articleHeader = article.querySelector('h3');
-    articleHeader.addEventListener('click', function (event) {
-      alert('hello')
+    articleHeader.addEventListener('click', (event) => {
+      const mainPart = document.getElementById('main');
+      const plusButton = document.getElementById('plus-button');
+
+      this.element.style.opacity = 0;
+
+      this.element.ontransitionend = () => {
+        this.element.style.display = 'none';
+        plusButton.style.display = 'none';
+        
+        this.element.style.opacity = 1;
+
+        mainPart.append(article);
+      }
     });
 
     //Push article
