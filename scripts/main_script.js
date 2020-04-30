@@ -26,9 +26,9 @@ const pageElements = {
   topMenu: document.body.querySelector('.top-menu'),
   heroCenterButton: document.getElementById('hero-zone-button'),
   socialInfo: document.body.querySelector('.social-info'),
-  main : document.getElementById('main'),
+  main: document.getElementById('main'),
   content: document.querySelector('.content'),
-  buttonForArticles : document.body.querySelector('.content .fas, .fa-plus')
+  buttonForArticles: document.body.querySelector('.content .fas, .fa-plus')
 }
 
 // Top menu change color on scroll
@@ -81,18 +81,15 @@ async function loadArticles() {
   // Open aricle event
   const articleHeader = article.querySelector('h3');
   articleHeader.addEventListener('click', (event) => {
-    const mainPart = document.getElementById('main');
-    const plusButton = document.getElementById('plus-button');
-
     pageElements.content.style.opacity = 0;
 
     pageElements.content.ontransitionend = () => {
       pageElements.content.style.display = 'none';
-      plusButton.style.display = 'none';
+      pageElements.buttonForArticles.style.display = 'none';
 
       pageElements.content.style.opacity = 1;
 
-      mainPart.append(article);
+      pageElements.main.append(article);
     }
   });
 
