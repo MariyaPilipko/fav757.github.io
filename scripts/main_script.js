@@ -89,14 +89,11 @@ class ArticlesPreviews extends HTMLElement {
     // Create article and push it on the page
     const article = document.createElement('article');
     article.innerHTML = htmlText;
+
+    article.setAttribute('name', notUsedArticle.name);
+    article.className = 'content_article';
+
     this.element.append(article);
-
-    this.setUpArticle(article);
-  }
-
-  static setUpArticle(articleElement) {
-    //Set name for checking unique
-    article.setAttribute('name', notUserArticle.name);
   }
 }
 
