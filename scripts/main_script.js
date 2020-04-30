@@ -21,7 +21,7 @@ const database = {
   ],
 };
 
-// Change top menu color on scroll
+// Top menu change color on scroll
 document.addEventListener('scroll', function () {
   const topMenu = document.body.querySelector('.top-menu');
 
@@ -36,11 +36,12 @@ document.addEventListener('scroll', function () {
   }
 });
 
-//
+// Header button on press scroll to main part
 document.getElementById('hero-zone-button').addEventListener('click', function () {
-  document.body.querySelector('.social-info').scrollIntoView({behavior: "smooth"});
+  document.body.querySelector('.social-info').scrollIntoView({ behavior: "smooth" });
 });
 
+// Describes behavior of articles element
 class ArticlesPreviews extends HTMLElement {
   constructor() {
     super();
@@ -48,7 +49,10 @@ class ArticlesPreviews extends HTMLElement {
     // Create element that will load more articles
     const buttonForMoreArticle = document.createElement('i');
     buttonForMoreArticle.className = 'fas fa-plus';
-    buttonForMoreArticle.addEventListener('click', ArticlesPreviews.loadArticles);
+    buttonForMoreArticle.addEventListener('click', function () {
+      ArticlesPreviews.loadArticles();
+      buttonForMoreArticle.scrollIntoView({ behavior: 'smooth' });
+    });
     this.after(buttonForMoreArticle);
 
     // Intial article load
