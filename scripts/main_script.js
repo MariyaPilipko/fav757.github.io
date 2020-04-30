@@ -78,7 +78,7 @@ async function loadArticles() {
   article.setAttribute('name', notUsedArticle.name);
   article.className = 'content_article';
 
-  // Open aricle event
+  // Open article event
   const articleHeader = article.querySelector('h3');
   articleHeader.addEventListener('click', (event) => {
     pageElements.content.style.opacity = 0;
@@ -89,6 +89,7 @@ async function loadArticles() {
 
       pageElements.content.style.opacity = 1;
 
+      article.style.margin = '2rem';
       pageElements.main.append(article);
     }
   });

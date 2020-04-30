@@ -157,6 +157,16 @@ main {
   transition: 1s;
 }
 
+.content .fas, .fa-plus {
+  font-size: 3rem;
+  color: gray;
+  margin-bottom: 2rem;
+ }
+
+.content .fas, .fa-plus:hover {
+  transform: scale(1.2);
+}
+
 .content_article {
   display: flex;
   flex-flow: row wrap;
@@ -204,16 +214,6 @@ main {
 
 .content_article_preview-text h3:hover{
   background-color: rgb(235, 235, 235);
-}
-
-.content .fas, .fa-plus {
-  font-size: 3rem;
-  color: gray;
-  margin-bottom: 2rem;
- }
-
-.content .fas, .fa-plus:hover {
-  transform: scale(1.2);
 }
 
  /*Footer section*/
