@@ -49,6 +49,19 @@ pageElements.heroCenterButton.addEventListener('click', function () {
   pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
 });
 
+// Change page
+
+function changePage() {
+  /* Делает контент мейна прозрачным, после анимации убирает контент,
+     вызывает колбэк функцию, которая меняет контент странцы на свой
+  */
+}
+
+// Load article section
+function articleSectinon() {
+
+}
+
 // Get article that is not used on the page
 function getNotUsedArticle() {
   let notUserArticle;
