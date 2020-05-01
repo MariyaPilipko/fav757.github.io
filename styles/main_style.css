@@ -168,6 +168,7 @@ main {
 }
 
 .content_article {
+  position: relative;
   display: flex;
   flex-flow: row wrap;
   margin: 2rem 0;
@@ -178,6 +179,7 @@ main {
 }
 
 .content_article-fullsize {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   margin: 2rem;
@@ -212,9 +214,13 @@ main {
  }
 
 .content_article_preview-text {
-  margin: 2rem;
+  padding: 2rem;
   flex: 3;
  }
+
+.content_article_preview-text_header {
+  display: flex;
+}
 
 .content_article_preview-text p:first-of-type::after {
   content: "...";

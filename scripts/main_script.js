@@ -78,11 +78,19 @@ async function loadArticles() {
   article.setAttribute('name', notUsedArticle.name);
   article.className = 'content_article';
 
-  // Open article event
-  const articleHeader = article.querySelector('h3');
-  articleHeader.addEventListener('click', (event) => {
-    pageElements.content.style.opacity = 0;
+  //Push article
+  pageElements.content.append(article);
 
+  createEventForOpenArticle(article);
+}
+
+// Create event for article header to open article
+function createEventForOpenArticle(article) {
+  const articleHeader = article.querySelector('h3');
+
+  articleHeader.addEventListener('click', () => {
+    pageElements.content.style.opacity = 0;
+    
     pageElements.content.ontransitionend = () => {
       pageElements.content.style.display = 'none';
       pageElements.content.style.opacity = 1;
@@ -94,10 +102,9 @@ async function loadArticles() {
       pageElements.main.append(article);
     }
   });
-
-  //Push article
-  pageElements.content.append(article);
 }
+
+//Create event for closing article
 
 //Call for first article
 loadArticles();
