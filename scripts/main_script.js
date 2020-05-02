@@ -99,27 +99,21 @@ class ArticlePreview extends HTMLElement {
         );
       }
     });
+
+    //Create event for article header to open article
+    this.addEventListener('click', function(event) {
+      if (event.target.tagName !== 'H3') return;
+
+      pageElements.content.style.opacity = 0;
+
+      pageElements.content.ontransitionend = () => {
+        pageElements.content.innerHTML = this.innerHTML;
+      this.className = 'content_article-fullsize';
+      document.getElementById('preview-hidden-text').hidden = false;
+      pageElements.content.style.opacity = 1;
+      }
+    });
   }
 }
 
 customElements.define('article-preview', ArticlePreview);
-
-  // // Create event for article header to open article
-  // static createEventForOpenArticle(article) {
-  //   const articleHeader = article.querySelector('h3');
-
-  //   articleHeader.addEventListener('click', () => {
-  //     pageElements.content.style.opacity = 0;
-
-  //     pageElements.content.ontransitionend = () => {
-  //       pageElements.content.style.display = 'none';
-  //       pageElements.content.style.opacity = 1;
-  //       pageElements.buttonForArticles.style.display = 'none';
-
-  //       article.className = 'content_article-fullsize';
-  //       document.getElementById('preview-hidden-text').hidden = false;
-
-  //       pageElements.main.append(article);
-  //     }
-  //   });
-  // }
