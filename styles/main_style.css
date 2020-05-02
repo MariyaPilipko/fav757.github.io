@@ -147,13 +147,13 @@ mark {
 /*Content section*/
 main {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   align-items: center;
 }
 
 .content {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   justify-content: center;
   padding: 1rem 2rem;
   transition: 1.5s;
@@ -179,7 +179,7 @@ main {
 .content_article-fullsize {
   position: relative;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column wrap;
   margin: 2rem;
   background: white;
   box-shadow: 0px 0px 5px gray;
@@ -262,13 +262,17 @@ footer h3 {
 
   /*Social info section*/
   .social-info {
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     top: calc(100vh - 4rem);
   }
 
   /*Content section*/
   .content_article {
     flex-flow: column wrap;
+  }
+
+  .content_article-fullsize {
+    margin: 1rem;
   }
 
   /*Footer section*/
