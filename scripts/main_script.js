@@ -54,40 +54,23 @@ class ArticlePreview extends HTMLElement {
   constructor() {
     super();
 
-    // Create element for article and get no used article from database
-    const article = document.createElement('article');
-    const articleFromDatabase = ArticlePreview.getNotUsedArticle();
-    
-    // Set up article attributes
-    article.setAttribute('name', articleFromDatabase.name);
-    article.className = 'content_article';
-
-    // Get text for article and append it on the page
-    ArticlePreview.getArticleText(articleFromDatabase)
-    .then((html) => {
-      article.innerHTML = html;
-      this.append(article);
-    });
-  }
-
-  // Get article that is not used on the page
-  static getNotUsedArticle() {
-    let notUserArticle;
-
+    // Get no used article from database
+    let notUsedArticle;
     for (let article of database.articles) {
       if (!pageElements.content.querySelector(`[name="${article.name}"]`)) {
-        notUserArticle = article;
-        return notUserArticle;
+        notUsedArticle = article;
+        break;
       }
     }
-  }
+    
+    // Set up article attributes
+    this.setAttribute('name', notUsedArticle.name);
+    this.className = 'content_article';
 
-  // Fetch server to get article text
-  static async getArticleText(notUsedArticle) {
-    const response = await fetch(`resources/articles/${notUsedArticle.name}.html`);
-    const html = response.text();
-
-    return html;
+    // Get text for article and append it on the page
+    fetch(`resources/articles/${notUsedArticle.name}.html`)
+      .then((response) => response.text())
+      .then((html) => this.innerHTML = html);
   }
 }
 

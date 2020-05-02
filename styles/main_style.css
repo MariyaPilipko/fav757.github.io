@@ -153,15 +153,9 @@ main {
 }
 
 .content {
-  padding: 0 10%;
+  padding: 0 2rem;
   transition: 1s;
 }
-
-.content .fas, .fa-plus {
-  font-size: 3rem;
-  color: gray;
-  margin-bottom: 2rem;
- }
 
 .content .fas, .fa-plus:hover {
   transform: scale(1.2);
@@ -220,6 +214,11 @@ main {
 
 .content_article_preview-text_header {
   display: flex;
+  justify-content: space-between;
+}
+
+.content_article_preview-text_header .fa-times {
+  font-size: 1.5rem;
 }
 
 .content_article_preview-text p:first-of-type::after {
