@@ -50,80 +50,72 @@ pageElements.heroCenterButton.addEventListener('click', function () {
 });
 
 // Change page
+class ArticlePreview extends HTMLElement {
+  constructor() {
+    super();
 
-function changePage() {
-  /* Делает контент мейна прозрачным, после анимации убирает контент,
-     вызывает колбэк функцию, которая меняет контент странцы на свой
-  */
-}
+    // Create element for article and get no used article from database
+    const article = document.createElement('article');
+    const articleFromDatabase = ArticlePreview.getNotUsedArticle();
+    
+    // Set up article attributes
+    article.setAttribute('name', articleFromDatabase.name);
+    article.className = 'content_article';
 
-// Load article section
-function articleSectinon() {
+    // Get text for article and append it on the page
+    ArticlePreview.getArticleText(articleFromDatabase)
+    .then((html) => {
+      article.innerHTML = html;
+      this.append(article);
+    });
+  }
 
-}
+  // Get article that is not used on the page
+  static getNotUsedArticle() {
+    let notUserArticle;
 
-// Get article that is not used on the page
-function getNotUsedArticle() {
-  let notUserArticle;
-
-  for (let article of database.articles) {
-    if (!pageElements.content.querySelector(`[name="${article.name}"]`)) {
-      notUserArticle = article;
-      return notUserArticle;
+    for (let article of database.articles) {
+      if (!pageElements.content.querySelector(`[name="${article.name}"]`)) {
+        notUserArticle = article;
+        return notUserArticle;
+      }
     }
+  }
+
+  // Fetch server to get article text
+  static async getArticleText(notUsedArticle) {
+    const response = await fetch(`resources/articles/${notUsedArticle.name}.html`);
+    const html = response.text();
+
+    return html;
   }
 }
 
-// Load a new article
-async function loadArticles() {
-  //get not used article text
-  const notUsedArticle = getNotUsedArticle();
+customElements.define('article-preview', ArticlePreview);
 
-  // Get response from server with article html and add it on the page
-  const response = await fetch(`resources/articles/${notUsedArticle.name}.html`);
-  const htmlText = await response.text();
-
-  // Create article and add text to it
-  const article = document.createElement('article');
-  article.innerHTML = htmlText;
-
-  // Set name and class for article
-  article.setAttribute('name', notUsedArticle.name);
-  article.className = 'content_article';
-
-  //Push article
-  pageElements.content.append(article);
-
-  createEventForOpenArticle(article);
-}
-
-// Create event for article header to open article
-function createEventForOpenArticle(article) {
-  const articleHeader = article.querySelector('h3');
-
-  articleHeader.addEventListener('click', () => {
-    pageElements.content.style.opacity = 0;
-    
-    pageElements.content.ontransitionend = () => {
-      pageElements.content.style.display = 'none';
-      pageElements.content.style.opacity = 1;
-      pageElements.buttonForArticles.style.display = 'none';
-
-      article.className = 'content_article-fullsize';
-      document.getElementById('preview-hidden-text').hidden = false;
-
-      pageElements.main.append(article);
-    }
+  // Event to load more articles
+  pageElements.buttonForArticles.addEventListener('click', function() {
+    loadArticles();
+    pageElements.buttonForArticles.scrollIntoView({ behavior: 'smooth' });
   });
-}
 
-//Create event for closing article
 
-//Call for first article
-loadArticles();
+  // // Create event for article header to open article
+  // static createEventForOpenArticle(article) {
+  //   const articleHeader = article.querySelector('h3');
 
-// Event to load more articles
-pageElements.buttonForArticles.addEventListener('click', function () {
-  loadArticles();
-  pageElements.buttonForArticles.scrollIntoView({ behavior: 'smooth' });
-});
+  //   articleHeader.addEventListener('click', () => {
+  //     pageElements.content.style.opacity = 0;
+
+  //     pageElements.content.ontransitionend = () => {
+  //       pageElements.content.style.display = 'none';
+  //       pageElements.content.style.opacity = 1;
+  //       pageElements.buttonForArticles.style.display = 'none';
+
+  //       article.className = 'content_article-fullsize';
+  //       document.getElementById('preview-hidden-text').hidden = false;
+
+  //       pageElements.main.append(article);
+  //     }
+  //   });
+  // }
