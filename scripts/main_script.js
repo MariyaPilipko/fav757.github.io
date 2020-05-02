@@ -72,12 +72,25 @@ class ArticlePreview extends HTMLElement {
       .then((response) => response.text())
       .then((html) => this.innerHTML = html);
 
-    const loadMoreArticlesButton =
+    // Create or move button that loads more articles
+    let loadMoreArticlesButton =
       this.parentElement.querySelector('.content-load-more-articles');
 
     if (loadMoreArticlesButton) {
-      
+      this.after(loadMoreArticlesButton);
+    } else {
+      this.insertAdjacentHTML(
+        'afterEnd',
+        '<i class="content-load-more-articles fas fa-plus"></i>'
+      );
+      let loadMoreArticlesButton =
+      this.parentElement.querySelector('.content-load-more-articles');
     }
+
+    // Create event that loads more articles
+    loadMoreArticlesButton.addEventListener('click', function() {
+      this.parentElement.insertAdjacentHTML('beforeEnd', '<article-preview></article-preview>')
+    })
   }
 }
 
