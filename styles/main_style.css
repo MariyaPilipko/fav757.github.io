@@ -153,19 +153,24 @@ main {
 }
 
 .content {
-  padding: 0 2rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  padding: 1rem 2rem;
   transition: 1s;
 }
 
-.content .fas, .fa-plus:hover {
-  transform: scale(1.2);
+.content-load-more-articles {
+  text-align: center;
+  color: gray;
+  font-size: 2rem;
 }
 
 .content_article {
   position: relative;
   display: flex;
   flex-flow: row wrap;
-  margin: 2rem 0;
+  margin: 1rem 0;
   background: white;
   box-shadow: 0px 0px 5px gray;
   animation-name: showContentArticle;
@@ -197,6 +202,15 @@ main {
   }
 }
 
+.content_article_close-button {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.content_article_close-button:hover {
+  transform: scale(1.2);
+}
+
 .content_article_preview-img {
  flex: 2;
 }
@@ -215,10 +229,6 @@ main {
 .content_article_preview-text_header {
   display: flex;
   justify-content: space-between;
-}
-
-.content_article_preview-text_header .fa-times {
-  font-size: 1.5rem;
 }
 
 .content_article_preview-text p:first-of-type::after {

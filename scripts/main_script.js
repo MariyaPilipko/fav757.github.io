@@ -49,7 +49,7 @@ pageElements.heroCenterButton.addEventListener('click', function () {
   pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
 });
 
-// Change page
+// Class for article
 class ArticlePreview extends HTMLElement {
   constructor() {
     super();
@@ -62,7 +62,7 @@ class ArticlePreview extends HTMLElement {
         break;
       }
     }
-    
+
     // Set up article attributes
     this.setAttribute('name', notUsedArticle.name);
     this.className = 'content_article';
@@ -71,17 +71,17 @@ class ArticlePreview extends HTMLElement {
     fetch(`resources/articles/${notUsedArticle.name}.html`)
       .then((response) => response.text())
       .then((html) => this.innerHTML = html);
+
+    const loadMoreArticlesButton =
+      this.parentElement.querySelector('.content-load-more-articles');
+
+    if (loadMoreArticlesButton) {
+      
+    }
   }
 }
 
 customElements.define('article-preview', ArticlePreview);
-
-  // Event to load more articles
-  pageElements.buttonForArticles.addEventListener('click', function() {
-    loadArticles();
-    pageElements.buttonForArticles.scrollIntoView({ behavior: 'smooth' });
-  });
-
 
   // // Create event for article header to open article
   // static createEventForOpenArticle(article) {
