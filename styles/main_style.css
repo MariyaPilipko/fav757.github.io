@@ -149,7 +149,6 @@ main {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  transition: 1s;
 }
 
 .content {
@@ -157,7 +156,7 @@ main {
   flex-flow: column nowrap;
   justify-content: center;
   padding: 1rem 2rem;
-  transition: 1s;
+  transition: 1.5s;
 }
 
 .content-load-more-articles {
@@ -173,8 +172,8 @@ main {
   margin: 1rem 0;
   background: white;
   box-shadow: 0px 0px 5px gray;
-  animation-name: showContentArticle;
-  animation-duration: 1.5s;
+  transition: 1s;
+  opacity: 0;
 }
 
 .content_article-fullsize {
@@ -184,22 +183,10 @@ main {
   margin: 2rem;
   background: white;
   box-shadow: 0px 0px 5px gray;
-  animation-name: showContentArticle;
-  animation-duration: 1.5s;
 }
 
 .content_article-fullsize .content_article_preview-img img {
   display: none;
-}
-
-@keyframes showContentArticle {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
-  }
 }
 
 .content_article_close-button {

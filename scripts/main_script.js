@@ -71,7 +71,10 @@ class ArticlePreview extends HTMLElement {
     // Get text for article and append it on the page
     fetch(`resources/articles/${notUsedArticle.name}.html`)
       .then((response) => response.text())
-      .then((html) => this.innerHTML = html);
+      .then((html) => {
+        this.innerHTML = html;
+        this.style.opacity = 1;
+      });
 
     // Create or move button that loads more articles
     let loadMoreArticlesButton =
@@ -107,24 +110,29 @@ class ArticlePreview extends HTMLElement {
 
       pageElements.content.ontransitionend = () => {
         pageElements.content.innerHTML = '<div></div>';
-        pageElements.content.firstElementChild.innerHTML = this.innerHTML
-        pageElements.content.firstElementChild.className = 'content_article-fullsize';
 
-        document.getElementById('preview-hidden-text').hidden = false;
+        pageElements.content.firstElementChild.className = 'content_article-fullsize';
+        pageElements.content.firstElementChild.innerHTML = this.innerHTML;
+
         pageElements.content.style.opacity = 1;
 
         // Event for closing news tab
         pageElements.content.firstElementChild.addEventListener('click', function (event) {
           if (event.target.className === 'content_article_close-button fas fa-times') {
-            pageElements.content.innerHTML = 
-            '<article-preview></article-preview>' +
-            '<article-preview></article-preview>';
+            pageElements.content.style.opacity = 0;
+
+            pageElements.content.ontransitionend = () => {
+              pageElements.content.innerHTML =
+                '<article-preview></article-preview>' +
+                '<article-preview></article-preview>';
+
+              pageElements.content.style.opacity = 1;
+              pageElements.content.ontransitionend = null;
+            }
           }
         });
       }
     });
-
-
   }
 }
 
