@@ -207,10 +207,6 @@ main {
   color: gray;
 }
 
-.content_article_close-button:hover {
-  transform: scale(1.2);
-}
-
 .content_article_preview-img {
  flex: 2;
 }

@@ -101,16 +101,17 @@ class ArticlePreview extends HTMLElement {
     });
 
     //Create event for article header to open article
-    this.addEventListener('click', function(event) {
+    this.addEventListener('click', function (event) {
       if (event.target.tagName !== 'H3') return;
-
       pageElements.content.style.opacity = 0;
 
       pageElements.content.ontransitionend = () => {
-        pageElements.content.innerHTML = this.innerHTML;
-      this.className = 'content_article-fullsize';
-      document.getElementById('preview-hidden-text').hidden = false;
-      pageElements.content.style.opacity = 1;
+        pageElements.content.innerHTML = '<div></div>';
+        pageElements.content.firstElementChild.innerHTML = this.innerHTML
+        pageElements.content.firstElementChild.className = 'content_article-fullsize';
+        
+        document.getElementById('preview-hidden-text').hidden = false;
+        pageElements.content.style.opacity = 1;
       }
     });
   }
