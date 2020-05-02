@@ -55,13 +55,14 @@ class ArticlePreview extends HTMLElement {
     super();
 
     // Get no used article from database
-    let notUsedArticle;
-    for (let article of database.articles) {
-      if (!pageElements.content.querySelector(`[name="${article.name}"]`)) {
-        notUsedArticle = article;
-        break;
+    const getNotUsedArticle = () => {
+      for (let article of database.articles) {
+        if (!pageElements.content.querySelector(`[name="${article.name}"]`)) {
+          return article;
+        }
       }
     }
+    const notUsedArticle = getNotUsedArticle();
 
     // Set up article attributes
     this.setAttribute('name', notUsedArticle.name);
@@ -83,14 +84,21 @@ class ArticlePreview extends HTMLElement {
         'afterEnd',
         '<i class="content-load-more-articles fas fa-plus"></i>'
       );
-      let loadMoreArticlesButton =
-      this.parentElement.querySelector('.content-load-more-articles');
+      loadMoreArticlesButton =
+        this.parentElement.querySelector('.content-load-more-articles');
     }
 
     // Create event that loads more articles
-    loadMoreArticlesButton.addEventListener('click', function() {
-      this.parentElement.insertAdjacentHTML('beforeEnd', '<article-preview></article-preview>')
-    })
+    loadMoreArticlesButton.addEventListener('click', function () {
+      if (!getNotUsedArticle()) {
+        this.remove();
+      } else {
+        this.parentElement.insertAdjacentHTML(
+          'beforeEnd',
+          '<article-preview></article-preview>'
+        );
+      }
+    });
   }
 }
 
