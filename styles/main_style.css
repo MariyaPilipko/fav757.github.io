@@ -267,12 +267,13 @@ footer h3 {
   }
 
   /*Content section*/
+
   .content_article {
     flex-flow: column wrap;
   }
 
   .content_article-fullsize {
-    margin: 1rem;
+    margin: 0rem;
   }
 
   /*Footer section*/
