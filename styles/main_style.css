@@ -176,6 +176,10 @@ main {
   opacity: 0;
 }
 
+.content_article .preview-hidden-text {
+  display: none;
+}
+
 .content_article_close-button {
   visibility: hidden;;
   font-size: 1.5rem;
