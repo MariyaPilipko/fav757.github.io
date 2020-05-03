@@ -176,6 +176,12 @@ main {
   opacity: 0;
 }
 
+.content_article_close-button {
+  visibility: hidden;;
+  font-size: 1.5rem;
+  color: gray;
+}
+
 .content_article-fullsize {
   position: relative;
   display: flex;
@@ -189,9 +195,8 @@ main {
   display: none;
 }
 
-.content_article_close-button {
-  font-size: 1.5rem;
-  color: gray;
+.content_article-fullsize .content_article_close-button {
+  visibility: visible;
 }
 
 .content_article_preview-img {
