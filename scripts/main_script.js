@@ -6,25 +6,28 @@ const database = {
   articles: [
     {
       name: 'borsh',
-      date: new Date('05/11/2020')
+      date: new Date('05/01/2020')
     },
 
     {
       name: 'vino',
-      date: new Date('05/13/2020')
+      date: new Date('05/02/2020')
     },
 
     {
       name: 'food-for-homeless',
-      date: new Date('05/10/2020')
+      date: new Date('05/03/2020')
     },
 	
 	{
       name: 'buns',
-      date: new Date('03/22/2020')
+      date: new Date('05/04/2020')
     }
   ],
 };
+
+// Sort articles by date
+database.articles.sort((a,b) => b.date-a.date);
 
 // Page elements variables
 const pageElements = {
