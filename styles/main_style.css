@@ -237,6 +237,20 @@ main {
   background-color: rgb(235, 235, 235);
 }
 
+.preview-hidden-text img {
+  width: 33%;
+  float: left;
+}
+
+.preview-hidden-text p:nth-child(even) img{
+  float: right;
+}
+
+.preview-hidden-text p {
+  margin: 1rem 0;
+  overflow: auto;
+}
+
  /*Footer section*/
 footer {
   display: flex;
@@ -283,6 +297,12 @@ footer h3 {
 
   .content_article-fullsize {
     margin: 0rem;
+  }
+
+  .preview-hidden-text img {
+    display: block;
+    width: 100%;
+    float: none;
   }
 
   /*Footer section*/
