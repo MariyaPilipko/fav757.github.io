@@ -18,8 +18,8 @@ const database = {
       name: 'food-for-homeless',
       date: new Date('05/03/2020')
     },
-	
-	{
+
+    {
       name: 'buns',
       date: new Date('05/04/2020')
     }
@@ -27,16 +27,18 @@ const database = {
 };
 
 // Sort articles by date
-database.articles.sort((a,b) => b.date-a.date);
+database.articles.sort((a, b) => b.date - a.date);
 
 // Page elements variables
 const pageElements = {
   topMenu: document.body.querySelector('.top-menu'),
+  topMenuOpenButton: document.body.querySelector('.top-menu_nav-open-button'),
+  topMenuMobileMenu: document.body.querySelector('.top-menu_mobile-menu'),
   heroCenterButton: document.getElementById('hero-zone-button'),
   socialInfo: document.body.querySelector('.social-info'),
   main: document.getElementById('main'),
   content: document.querySelector('.content'),
-  buttonForArticles: document.body.querySelector('.content .fas, .fa-plus')
+  buttonForArticles: document.body.querySelector('.content .fas, .fa-plus'),
 }
 
 // Top menu change color on scroll
@@ -49,6 +51,15 @@ document.addEventListener('scroll', function () {
     pageElements.topMenu.style.background = '';
     pageElements.topMenu.style.color = '';
     pageElements.topMenu.style.boxShadow = '';
+  }
+});
+
+// Top menu event for open
+pageElements.topMenuOpenButton.addEventListener('click', function () {
+  if (pageElements.topMenuMobileMenu.style.display) {
+    pageElements.topMenuMobileMenu.style.display = '';
+  } else {
+    pageElements.topMenuMobileMenu.style.display = 'block';
   }
 });
 

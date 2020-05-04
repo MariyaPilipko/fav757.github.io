@@ -60,7 +60,7 @@ mark {
   color: inherit;
 }
 
-.top-menu li:nth-of-type(even) a{
+.top-menu_nav li:nth-of-type(even) a {
   margin: 0 1rem;
 }
 
@@ -71,6 +71,20 @@ mark {
 .top-menu_nav-open-button {
   font-size: 2rem;
   display: none;
+}
+
+.top-menu_mobile-menu {
+  display: none;
+}
+
+.top-menu_mobile-menu nav ul {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 10%;
+}
+
+.top-menu_mobile-menu nav ul li{
+  margin: 0.3rem 0;
 }
 
 /*Hero section*/
@@ -292,7 +306,7 @@ footer h3 {
   /*Content section*/
 
   .content_article {
-    flex-flow: column nowrap;
+    flex-flow: column nofwrap;
   }
 
   .content_article-fullsize {
