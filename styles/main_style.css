@@ -159,6 +159,11 @@ mark {
   color: var(--main-orange);
 }
 
+.social-info_networks-logos a:visited,
+.social-info_networks-logos a:link {
+  color: var(--sub-text-color);
+}
+
 /*Content section*/
 main {
   display: flex;
