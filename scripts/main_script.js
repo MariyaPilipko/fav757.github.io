@@ -31,6 +31,7 @@ database.articles.sort((a, b) => b.date - a.date);
 
 // Page elements variables
 const pageElements = {
+  scrollTopButton: document.body.querySelector('.move-top-button'),
   topMenu: document.body.querySelector('.top-menu'),
   topMenuOpenButton: document.body.querySelector('.top-menu_nav-open-button'),
   topMenuMobileMenu: document.body.querySelector('.top-menu_mobile-menu'),
@@ -42,17 +43,32 @@ const pageElements = {
   footer: document.body.querySelector('footer')
 }
 
-// Top menu change color on scroll
+// Top menu and scroll top button change color on scroll
 document.addEventListener('scroll', function () {
   if (window.pageYOffset) {
     pageElements.topMenu.style.background = 'white';
     pageElements.topMenu.style.color = 'black';
     pageElements.topMenu.style.boxShadow = '0 2px 2px gray';
+
+    pageElements.scrollTopButton.style.color = 'black';
+    pageElements.scrollTopButton.style.borderColor = 'black';
   } else {
     pageElements.topMenu.style.background = '';
     pageElements.topMenu.style.color = '';
     pageElements.topMenu.style.boxShadow = '';
+
+    pageElements.scrollTopButton.style.color = '';
+    pageElements.scrollTopButton.style.borderColor = '';
   }
+});
+
+// Add event to scroll page to the top
+pageElements.scrollTopButton.addEventListener('click', function() {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
 });
 
 // Top menu event for open
