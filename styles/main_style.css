@@ -38,7 +38,7 @@ mark {
   font-size: 3rem;
   text-align: center;
   width: 3.6rem;
-  border: 2px solid var(--sub-text-color);
+  border: 2.5px solid var(--sub-text-color);
   border-radius: 50%;
   color: var(--sub-text-color);
 }
@@ -306,6 +306,14 @@ footer h3 {
 
 /*Rules for low screen*/
 @media screen and (max-width: 900px) {
+  /*Scroll top button*/
+  .move-top-button {
+    margin: 0.5rem;
+    font-size: 2rem;
+    width: 2.4rem;
+    border: 1.5px solid var(--sub-text-color);
+  }
+
   /*Top menu section*/
   .top-menu_nav {
     display: none;
