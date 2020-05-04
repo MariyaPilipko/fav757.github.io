@@ -39,6 +39,7 @@ const pageElements = {
   main: document.getElementById('main'),
   content: document.querySelector('.content'),
   buttonForArticles: document.body.querySelector('.content .fas, .fa-plus'),
+  footer: document.body.querySelector('footer')
 }
 
 // Top menu change color on scroll
@@ -134,6 +135,7 @@ class ArticlePreview extends HTMLElement {
         pageElements.content.firstElementChild.innerHTML = this.innerHTML;
 
         pageElements.content.style.opacity = 1;
+        pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
 
         // Event for closing news tab
         pageElements.content.firstElementChild.addEventListener('click', function (event) {
@@ -147,6 +149,8 @@ class ArticlePreview extends HTMLElement {
 
               pageElements.content.style.opacity = 1;
               pageElements.content.ontransitionend = null;
+
+              pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
             }
           }
         });
