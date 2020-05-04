@@ -41,6 +41,12 @@ mark {
   border: 2.5px solid var(--sub-text-color);
   border-radius: 50%;
   color: var(--sub-text-color);
+  opacity: 0.2;
+  transition: 1s;
+}
+
+.move-top-button:hover {
+  opacity: 1;
 }
 
 /*Top menu section*/
