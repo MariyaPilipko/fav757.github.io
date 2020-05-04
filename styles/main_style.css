@@ -306,7 +306,7 @@ footer h3 {
   /*Content section*/
 
   .content_article {
-    flex-flow: column nofwrap;
+    flex-flow: column nowrap;
   }
 
   .content_article-fullsize {
