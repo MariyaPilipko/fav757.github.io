@@ -35,6 +35,7 @@ mark {
   color: white;
   animation-duration: 1s;
   z-index: 999;
+  transition: 0.5s;
 }
 
 .top-menu-container {
@@ -253,11 +254,13 @@ main {
 
 .preview-hidden-text img {
   width: 33%;
+  margin: 0 1rem 0 0;
   float: left;
 }
 
 .preview-hidden-text p:nth-child(even) img{
   float: right;
+  margin: 0 0 0 1rem;
 }
 
 .preview-hidden-text p {
