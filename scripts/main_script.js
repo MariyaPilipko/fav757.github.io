@@ -69,6 +69,16 @@ pageElements.heroCenterButton.addEventListener('click', function () {
   pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
 });
 
+// Open section
+function openArticles() {
+  if(document.querySelector('article-preview')) {
+    pageElements.socialInfo.scrollIntoView({behavior: 'smooth'});
+  } else {
+    pageElements.content.innerHTML = '<article-preview></article-preview>';
+    pageElements.socialInfo.scrollIntoView({behavior: 'smooth'});
+  }
+}
+
 // Class for article
 class ArticlePreview extends HTMLElement {
   constructor() {

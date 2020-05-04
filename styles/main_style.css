@@ -56,17 +56,12 @@ mark {
   display: inline-block;
 }
 
-.top-menu a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.top-menu_nav li:nth-of-type(even) a {
-  margin: 0 1rem;
-}
-
-.top-menu a:hover {
+.top-menu li:hover {
   color: var(--main-orange);
+}
+
+.top-menu_nav li:nth-of-type(even) {
+  margin: 0 1rem;
 }
 
 .top-menu_nav-open-button {
