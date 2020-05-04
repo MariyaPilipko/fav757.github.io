@@ -28,6 +28,21 @@ mark {
   color: var(--main-orange);
 }
 
+/*Scroll top button*/
+.move-top-button {
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  right: 0;
+  margin: 1rem;
+  font-size: 3rem;
+  text-align: center;
+  width: 3.6rem;
+  border: 2px solid var(--sub-text-color);
+  border-radius: 50%;
+  color: var(--sub-text-color);
+}
+
 /*Top menu section*/
 .top-menu {
   position: fixed;
