@@ -115,7 +115,7 @@ class ArticlePreview extends HTMLElement {
     this.className = 'content_article';
 
     // Get text for article and append it on the page
-    fetch(`resources/articles/${notUsedArticle.name}.html`)
+    fetch(`resources/pages/${notUsedArticle.name}.html`)
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;
