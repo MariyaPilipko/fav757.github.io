@@ -183,9 +183,9 @@ class ArticlePreview extends HTMLElement {
           '/' + notUsedArticle.date.getMonth() +
           '/' + notUsedArticle.date.getFullYear();
 
-        this.querySelector('h3').insertAdjacentHTML(
+        this.querySelector('.content_article_preview-text_header').insertAdjacentHTML(
           'afterend',
-          `<i>Article's date: ${articleDate}</i>`
+          `<i>Article's date: ${articleDate}</i><hr>`
         );
 
         this.style.opacity = 1;

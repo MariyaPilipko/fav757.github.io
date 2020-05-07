@@ -73,6 +73,13 @@ mark {
   letter-spacing: 1rem;
 }
 
+.top-menu_logo-header a,
+.top-menu_logo-header a:link,
+.top-menu_logo-header a:visited{
+  text-decoration: none;
+  color: white;
+}
+
 .top-menu li, ul {
   display: inline-block;
 }
@@ -340,7 +347,7 @@ main {
 
 .content_article_preview-text_header {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
 }
 
