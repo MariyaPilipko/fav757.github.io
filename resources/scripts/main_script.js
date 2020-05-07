@@ -83,6 +83,7 @@ function setUpModal() {
   modal.addEventListener("click", (event) => {
     if (event.target.className !== "modal__close-button") return;
 
+    document.body.style.overflow = '';
     backgr.style.opacity = 0;
     backgr.ontransitionend = () => backgr.remove();
   });
@@ -92,6 +93,7 @@ function setUpModal() {
 
     alert("Thank you for your opinion!");
 
+    document.body.style.overflow = '';
     backgr.style.opacity = 0;
     backgr.ontransitionend = () => backgr.remove();
   });
