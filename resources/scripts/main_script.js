@@ -177,6 +177,17 @@ class ArticlePreview extends HTMLElement {
       .then((response) => response.text())
       .then((html) => {
         this.innerHTML = html;
+
+        // Insert date
+        const articleDate = notUsedArticle.date.getDate() +
+          '/' + notUsedArticle.date.getMonth() +
+          '/' + notUsedArticle.date.getFullYear();
+
+        this.querySelector('h3').insertAdjacentHTML(
+          'afterend',
+          `<i>Article's date: ${articleDate}</i>`
+        );
+
         this.style.opacity = 1;
       });
 

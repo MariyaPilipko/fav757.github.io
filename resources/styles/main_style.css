@@ -340,6 +340,7 @@ main {
 
 .content_article_preview-text_header {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: space-between;
 }
 
