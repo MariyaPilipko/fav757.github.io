@@ -108,6 +108,10 @@ mark {
 .dark-frame {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   left: 0;
   right: 0;
   top: 0;
@@ -118,6 +122,7 @@ mark {
 }
 
 .modal {
+  width: 75%;
   background: white;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -136,7 +141,7 @@ mark {
 
 .modal__body {
   padding: 1rem;
-  height: 12rem;
+  height: 60vh;
   border-top: 1px solid gray;
   border-bottom: 1px solid lightgray;
 }
@@ -153,12 +158,11 @@ mark {
 .modal__footer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   padding: 1rem;
 }
 
 .modal__close-button {
-  margin-right: 1rem;
   padding: 0.5rem 2rem;
   border: 1px solid lightgray;
   background: white;
@@ -170,7 +174,6 @@ mark {
 }
 
 .modal__send-button {
-  margin-right: 1rem;
   padding: 0.5rem 2rem;
   border: 1px solid lightgray;
   background: white;
