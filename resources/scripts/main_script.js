@@ -121,7 +121,7 @@ document.addEventListener('scroll', function () {
 });
 
 // Add event to scroll page to the top
-pageElements.scrollTopButton.addEventListener('click', function() {
+pageElements.scrollTopButton.addEventListener('click', function () {
   window.scrollTo({
     top: 0,
     left: 0,
@@ -145,11 +145,11 @@ pageElements.heroCenterButton.addEventListener('click', function () {
 
 // Open section
 function openArticles() {
-  if(document.querySelector('article-preview')) {
-    pageElements.socialInfo.scrollIntoView({behavior: 'smooth'});
+  if (document.querySelector('article-preview')) {
+    pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
   } else {
     pageElements.content.innerHTML = '<article-preview></article-preview>';
-    pageElements.socialInfo.scrollIntoView({behavior: 'smooth'});
+    pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
