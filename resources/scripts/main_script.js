@@ -48,6 +48,57 @@ const pageElements = {
   footer: document.body.querySelector('footer')
 }
 
+// functions for creating contact modal window
+function blockPage() {
+  const backgr = document.createElement("div");
+  backgr.className = "dark-frame";
+
+  document.body.style.overflow = "hidden";
+  document.body.append(backgr);
+
+  return backgr;
+}
+
+function createModal() {
+  const modal = document.createElement("div");
+  modal.className = "modal";
+  modal.innerHTML = `<div class="modal__header">
+      <h2>Please, leave your message here!</h2>
+    </div>
+    <div class="modal__body">
+      <textarea class="modal__textarea"></textarea>
+    </div>
+    <div class="modal__footer">
+      <button class="modal__close-button">Close</button>
+      <button class="modal__send-button">Send</button>
+    </div>`;
+
+  return modal;
+}
+
+function setUpModal() {
+  const backgr = blockPage();
+  const modal = createModal();
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.className !== "modal__close-button") return;
+
+    backgr.style.opacity = 0;
+    backgr.ontransitionend = () => backgr.remove();
+  });
+
+  modal.addEventListener("click", (event) => {
+    if (event.target.className !== "modal__send-button") return;
+
+    alert("Thank you for your opinion!");
+
+    backgr.style.opacity = 0;
+    backgr.ontransitionend = () => backgr.remove();
+  });
+
+  backgr.append(modal);
+}
+
 // Top menu and scroll top button change color on scroll
 document.addEventListener('scroll', function () {
   if (window.pageYOffset) {
