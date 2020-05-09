@@ -77,9 +77,9 @@ mark {
 }
 
 .top-menu-container {
-  padding: 0.5rem 10%;
+  padding: 0.5rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -94,7 +94,7 @@ mark {
 .top-menu_logo-header a:link,
 .top-menu_logo-header a:visited{
   text-decoration: none;
-  color: white;
+  color: inherit;
 }
 
 .top-menu li, ul {
