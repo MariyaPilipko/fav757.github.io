@@ -511,6 +511,10 @@ footer h3 {
   }
 
   /*Top menu section*/
+  .top-menu-container {
+    justify-content: space-between;
+    padding: 0.5rem 10%;
+  }
   .top-menu_nav {
     display: none;
   }
