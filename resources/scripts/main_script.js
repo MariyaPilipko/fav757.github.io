@@ -138,10 +138,8 @@ pageElements.topMenuOpenButton.addEventListener('click', function () {
   }
 });
 
-// Header button on press scroll to main part
-pageElements.heroCenterButton.addEventListener('click', function () {
-  pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
-});
+// Header button on press goes to the about us section
+pageElements.heroCenterButton.addEventListener('click', loadAboutUsSection);
 
 // Open section
 function openArticles() {
