@@ -501,6 +501,10 @@ footer h3 {
 
   /*Content section*/
 
+  .content {
+    padding: 0.2rem;
+  }
+
   .content_article {
     flex-flow: column nowrap;
   }
@@ -516,6 +520,7 @@ footer h3 {
   }
 
   .about-us {
+    width: 100%;
     flex-flow: column wrap;
     padding: 5% 10%;
   }

@@ -260,5 +260,5 @@ async function loadAboutUsSection() {
   const response = await fetch('resources/pages/aboutus.html');
   const html = await response.text();
 
-  pageElements.main.innerHTML = html;
+  pageElements.content.innerHTML = html;
 }
