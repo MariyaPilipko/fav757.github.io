@@ -278,8 +278,10 @@ main {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  width: 100%;
   padding: 1rem 2rem;
   transition: 1.5s;
+  box-sizing: border-box;
 }
 
 .content-load-more-articles {
@@ -384,7 +386,8 @@ main {
 .about-us {
   display: flex;
   justify-content: space-between;
-  padding: 10% 0;
+  padding: 5% 10%;
+  box-sizing: border-box;
 }
 
 .about-us_user-card {
