@@ -515,7 +515,7 @@ footer h3 {
     float: none;
   }
 
-    .about-us_container {
+  .about-us {
     flex-flow: column wrap;
     padding: 5% 10%;
   }
