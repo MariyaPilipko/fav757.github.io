@@ -261,4 +261,6 @@ async function loadAboutUsSection() {
   const html = await response.text();
 
   pageElements.content.innerHTML = html;
+
+  pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
 }

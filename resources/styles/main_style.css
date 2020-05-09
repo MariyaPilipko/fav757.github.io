@@ -280,7 +280,7 @@ main {
   justify-content: center;
   width: 100%;
   padding: 1rem 2rem;
-  transition: 1.5s;
+  transition: 1s;
   box-sizing: border-box;
 }
 
@@ -426,6 +426,7 @@ main {
   border-radius: 0.5rem;
   background: none;
   padding: 0.5rem 2rem;
+  outline: none;
 }
 
 .about-us_user-card button:hover {
