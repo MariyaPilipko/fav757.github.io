@@ -36,6 +36,7 @@ database.articles.sort((a, b) => b.date - a.date);
 
 // Page elements variables
 const pageElements = {
+  askButton: document.body.querySelector('.ask-us-button'),
   scrollTopButton: document.body.querySelector('.move-top-button'),
   topMenu: document.body.querySelector('.top-menu'),
   topMenuOpenButton: document.body.querySelector('.top-menu_nav-open-button'),
@@ -110,6 +111,9 @@ document.addEventListener('scroll', function () {
 
     pageElements.scrollTopButton.style.color = 'black';
     pageElements.scrollTopButton.style.borderColor = 'black';
+
+    pageElements.askButton.style.color = 'black';
+    pageElements.askButton.style.borderColor = 'black';
   } else {
     pageElements.topMenu.style.background = '';
     pageElements.topMenu.style.color = '';
@@ -117,8 +121,14 @@ document.addEventListener('scroll', function () {
 
     pageElements.scrollTopButton.style.color = '';
     pageElements.scrollTopButton.style.borderColor = '';
+
+    pageElements.askButton.style.color = '';
+    pageElements.askButton.style.borderColor = '';
   }
 });
+
+// Event for ask button to open modal window
+pageElements.askButton.addEventListener('click', createModal);
 
 // Add event to scroll page to the top
 pageElements.scrollTopButton.addEventListener('click', function () {
@@ -139,7 +149,7 @@ pageElements.topMenuOpenButton.addEventListener('click', function () {
 });
 
 // Header button on press goes to the about us section
-pageElements.heroCenterButton.addEventListener('click', loadAboutUsSection);
+pageElements.askButton.addEventListener('click', setUpModal);
 
 // Open section
 function openArticles() {
