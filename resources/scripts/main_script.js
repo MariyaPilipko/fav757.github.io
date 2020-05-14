@@ -288,9 +288,17 @@ async function search(searchQuery) {
 
   const searchQueryRegExp = new RegExp(`${searchQuery}`, 'im');
 
-  articlesHTML.forEach(article => {
-    if (searchQueryRegExp.test(article)) {
-      alert('yes')
+  articlesHTML.forEach(elem => {
+    if (searchQueryRegExp.test(elem)) {
+      const article = document.createElement('article');
+      article.innerHTML = elem;
+      article.className = 'content_article-fullsize';
+      
+      if (pageElements.content.querySelector('article-preview')) {
+        pageElements.content.innerHTML = article.outerHTML;
+      } else {
+        pageElements.content.append(article);
+      }
     }
   });
 }
