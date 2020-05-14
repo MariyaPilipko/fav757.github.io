@@ -272,3 +272,24 @@ async function loadAboutUsSection() {
 
   pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
 }
+
+async function search(searchQuery) {
+  const articles = [];
+  const articlesHTML = [];
+
+  for (let article of database.articles) {
+    articles.push(
+      await fetch(`resources/pages/${article.name}.html`)
+        .then(response => response.text())
+        .then((html) => articlesHTML.push(html))
+      );
+  }
+
+  const searchQueryRegExp = new RegExp(/пищевых отходов/im);
+
+  articlesHTML.forEach(article => {
+    if (searchQueryRegExp.test(article)) {
+      console.log('test')
+    }
+  });
+}
