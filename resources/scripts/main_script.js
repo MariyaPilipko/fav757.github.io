@@ -273,6 +273,7 @@ async function loadAboutUsSection() {
   pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
 }
 
+// Search throw aricles
 async function search(searchQuery) {
   const articles = [];
   const articlesHTML = [];
@@ -285,11 +286,11 @@ async function search(searchQuery) {
       );
   }
 
-  const searchQueryRegExp = new RegExp(/пищевых отходов/im);
+  const searchQueryRegExp = new RegExp(`${searchQuery}`, 'im');
 
   articlesHTML.forEach(article => {
     if (searchQueryRegExp.test(article)) {
-      console.log('test')
+      alert('yes')
     }
   });
 }
