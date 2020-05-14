@@ -292,13 +292,30 @@ async function search(searchQuery) {
     if (searchQueryRegExp.test(elem)) {
       const article = document.createElement('article');
       article.innerHTML = elem;
+
       article.className = 'content_article-fullsize';
+      article.addEventListener('click', function (event) {
+        if (event.target.className === 'content_article_close-button fas fa-times') {
+          pageElements.content.style.opacity = 0;
+
+          pageElements.content.ontransitionend = () => {
+            pageElements.content.innerHTML =
+              '<article-preview></article-preview>' +
+              '<article-preview></article-preview>';
+
+            pageElements.content.style.opacity = 1;
+            pageElements.content.ontransitionend = null;
+
+            pageElements.socialInfo.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      });
       
-      if (pageElements.content.querySelector('article-preview')) {
-        pageElements.content.innerHTML = article.outerHTML;
-      } else {
-        pageElements.content.append(article);
+      if (!pageElements.content.querySelector('article')) {
+        pageElements.content.innerHTML = '';
       }
+      
+      pageElements.content.append(article);
     }
   });
 }
