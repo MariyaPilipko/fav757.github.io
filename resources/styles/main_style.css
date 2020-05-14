@@ -129,7 +129,7 @@ mark {
 }
 
 .top-menu_search {
-  display: flex;
+  display: none;
   align-items: center;
   position: absolute;
   border: 1px solid gray;
@@ -141,9 +141,11 @@ mark {
 
 .top-menu_search input {
   width: 100%;
+  padding: 0.3rem;
   margin-right: 0.5rem;
   border: 1px solid lightgray;
   border-radius: 2rem 0 0 2rem;
+  outline: none;
 }
 
 /* Modal window */

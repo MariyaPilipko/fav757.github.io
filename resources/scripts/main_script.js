@@ -314,8 +314,22 @@ async function search(searchQuery) {
       if (!pageElements.content.querySelector('article')) {
         pageElements.content.innerHTML = '';
       }
-      
+
       pageElements.content.append(article);
     }
+  });
+}
+
+function startSearch(event) {
+  if (event.target.tagName !== 'LI') return;
+
+  const searchForm = event.currentTarget.firstElementChild;
+  searchForm.style.display = 'flex';
+
+  searchForm.lastElementChild.addEventListener('click', function (e) {
+    searchForm.style.display = 'none';
+    pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
+
+    search(searchForm.firstElementChild.value);
   });
 }
