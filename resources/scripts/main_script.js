@@ -289,6 +289,8 @@ async function search(searchQuery) {
   const searchQueryRegExp = new RegExp(`${searchQuery}`, 'im');
 
   articlesHTML.forEach(elem => {
+    if (!searchQuery) return;
+    
     if (searchQueryRegExp.test(elem)) {
       const article = document.createElement('article');
       article.innerHTML = elem;
@@ -316,15 +318,20 @@ async function search(searchQuery) {
       }
 
       pageElements.content.append(article);
+      return;
     }
   });
+  alert('Ничего не найденно');
 }
 
 function startSearch(event) {
   if (event.target.tagName !== 'LI') return;
 
   const searchForm = event.currentTarget.firstElementChild;
-  searchForm.style.display = 'flex';
+
+  searchForm.style.display?
+    searchForm.style.display = '':
+    searchForm.style.display = 'flex';
 
   searchForm.lastElementChild.addEventListener('click', function (e) {
     searchForm.style.display = 'none';
