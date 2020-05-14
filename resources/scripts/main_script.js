@@ -8,7 +8,30 @@ const database = {
       name: 'borsh',
       date: new Date('05/01/2020')
     },
-
+    {
+      name: 'tea',
+      date: new Date('05/01/2020')
+    },
+    {
+      name: 'vegetables',
+      date: new Date('05/01/2020')
+    },
+    {
+      name: 'painkillers',
+      date: new Date('05/01/2020')
+    },
+    {
+      name: 'beans',
+      date: new Date('05/01/2020')
+    },
+    {
+      name: 'meatball',
+      date: new Date('05/01/2020')
+    },
+    {
+      name: 'borsh',
+      date: new Date('05/01/2020')
+    }, 	
     {
       name: 'vino',
       date: new Date('05/02/2020')
