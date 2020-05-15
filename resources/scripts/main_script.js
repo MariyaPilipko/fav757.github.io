@@ -340,20 +340,35 @@ async function search(searchQuery) {
       pageElements.content.append(article);
     }
   });
-  
+
   if (!foundArticle) alert('Ничего не найденно');
+  return;
 }
 
 function startSearch(event) {
   if (event.target.tagName !== 'LI') return;
 
-  const searchForm = event.currentTarget.firstElementChild;
+  event.target.insertAdjacentHTML('beforeEnd', `
+    <div class="top-menu_search">
+      <input type="text">
+      <i class="fas fa-search"></i>
+    </div>
+  `);
 
-  searchForm.style.display?
-    searchForm.style.display = '':
-    searchForm.style.display = 'flex';
+  if (pageElements.content.querySelector('article')) {
+    pageElements.content.innerHTML = '';
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+  }
+
+  const searchForm = event.target.firstElementChild;
 
   searchForm.lastElementChild.addEventListener('click', function (e) {
+    searchForm.remove();
+
     searchForm.style.display = 'none';
     pageElements.socialInfo.scrollIntoView({ behavior: 'smooth' });
 

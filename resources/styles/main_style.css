@@ -129,7 +129,7 @@ mark {
 }
 
 .top-menu_search {
-  display: none;
+  display: flex;
   align-items: center;
   position: absolute;
   border: 1px solid gray;
