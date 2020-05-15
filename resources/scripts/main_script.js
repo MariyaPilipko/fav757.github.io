@@ -295,23 +295,23 @@ async function loadAboutUsSection() {
 
 // Search throw aricles
 async function search(searchQuery) {
-  const articles = [];
   const articlesHTML = [];
 
   for (let article of database.articles) {
-    articles.push(
-      await fetch(`resources/pages/${article.name}.html`)
-        .then(response => response.text())
-        .then((html) => articlesHTML.push(html))
-      );
+    await fetch(`resources/pages/${article.name}.html`)
+      .then(response => response.text())
+      .then((html) => {articlesHTML.push(html)});
   }
 
   const searchQueryRegExp = new RegExp(`${searchQuery}`, 'im');
+  let foundArticle = false;
 
   articlesHTML.forEach(elem => {
     if (!searchQuery) return;
     
     if (searchQueryRegExp.test(elem)) {
+      if (!foundArticle) foundArticle = true;
+
       const article = document.createElement('article');
       article.innerHTML = elem;
 
@@ -338,10 +338,10 @@ async function search(searchQuery) {
       }
 
       pageElements.content.append(article);
-      return;
     }
   });
-  alert('Ничего не найденно');
+  
+  if (!foundArticle) alert('Ничего не найденно');
 }
 
 function startSearch(event) {
