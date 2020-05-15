@@ -8,30 +8,7 @@ const database = {
       name: 'borsh',
       date: new Date('05/01/2020')
     },
-    {
-      name: 'tea',
-      date: new Date('05/01/2020')
-    },
-    {
-      name: 'vegetables',
-      date: new Date('05/01/2020')
-    },
-    {
-      name: 'painkillers',
-      date: new Date('05/01/2020')
-    },
-    {
-      name: 'beans',
-      date: new Date('05/01/2020')
-    },
-    {
-      name: 'meatball',
-      date: new Date('05/01/2020')
-    },
-    {
-      name: 'borsh',
-      date: new Date('05/01/2020')
-    }, 	
+
     {
       name: 'vino',
       date: new Date('05/02/2020')
@@ -50,6 +27,26 @@ const database = {
     {
       name: 'meatball',
       date: new Date('05/24/2020')
+    },
+
+    {
+      name: 'beans',
+      date: (new Date('03/12/2019'))
+    },
+
+    {
+      name: 'painkiller',
+      date: (new Date('07/11/2020'))
+    },
+
+    {
+      name: 'tea',
+      date: (new Date('01/1/2019'))
+    },
+
+    {
+      name: 'vegetables',
+      date: (new Date('10/10/2019'))
     }
   ],
 };
