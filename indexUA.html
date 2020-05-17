@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Проект з WEB-технологій</title>
+  <link rel="stylesheet" type="text/css" href="resources/styles/main_style.css">
+  <link rel="icon" type="image/png" href="resources/images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="resources/fontawesome-free-5.13.0-web/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+  <!--Header part-->
+  <header>
+    <!--Top menu section-->
+    <div class="ask-us-button">
+      <i class="far fa-question-circle"></i>
+    </div>
+    <div class="move-top-button">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+    <section class="top-menu">
+      <div class="top-menu-container">
+        <nav class="top-menu_nav">
+          <ul>
+            <li onclick="openArticles()">Новини</li>
+            <li onclick="loadAboutUsSection()">Про нас</li>
+          </ul>
+        </nav>
+
+        <h2 class="top-menu_logo-header"><a href=https://fav757.github.io>WOF</a></h2>
+
+        <nav class="top-menu_nav">
+          <ul>
+            <li onclick="startSearch(event)">Пошук</li>
+            <li>Змінити мову</li>
+          </ul>
+        </nav>
+
+        <div class="top-menu_nav-open-button">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+
+      <div class=top-menu_mobile-menu>
+        <nav class="top-menu_mobile-menu_nav">
+          <ul>
+            <li onclick="openArticles()">Новини</li>
+            <li onclick="loadAboutUsSection()">Про нас</li>
+            <li>Пошук</li>
+            <li>Змінити мову</li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <!--Hero zone section-->
+    <section class="hero-zone">
+      <p><mark>Кулінарний портал</mark> / Database</p>
+      <h1>Мир їжі</h1>
+      <p>Все про їжу! Та більше...</p>
+      <button id="hero-zone-button">Про нас</a></button>
+    </section>
+
+    <!--Social networks section-->
+    <section class="social-info">
+      <div class="social-info_networks-logos">
+        <a href="https://github.com/fav757" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://t.me/Vadik40wn1k" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://skype.com" target="_blank"><i class="fab fa-skype"></i></a>
+      </div>
+
+      <div class="social-info_adress">
+        <i class="far fa-compass" title="We are open from 9:00 till 20:00"></i>
+        Харків, проспект МС. Борова 22/8
+      </div>
+    </section>
+  </header>
+
+  <!--Main part-->
+  <main id="main">
+    <!--Content section-->
+    <section class="content">
+      <article-preview></article-preview>
+    </section>
+  </main>
+
+  <!--Footer part-->
+  <footer>
+    <div>
+      <h3>Про нас</h3>
+      <p>Компанія, что займається вивченням їжі і рецептів для вашого здоров'я та задоволення!</p>
+    </div>
+
+    <div>
+      <h3>Контакти</h3>
+      <p>
+        <i class="far fa-compass" title="We are open from 9:00 till 20:00"></i>
+        Харків, проспект МС. Борова 22/8
+      </p>
+      <p>
+        <i class="fas fa-phone"></i>
+        + 380-133-781-231
+      </p>
+      <p>
+        <i class="far fa-envelope"></i>
+        fav755@gmail.com
+      </p>
+    </div>
+
+    <div>
+      <h3>Ми працюємо:</h3>
+      <p>Понеділок - П'ятниця</p>
+      <p>09:00 - 18:00</p>
+      <p>Субота - Неділя</p>
+      <p>12:00 - 17:00</p>
+    </div>
+  </footer>
+
+  <!--Main script (dont delete)-->
+  <script src="resources/scripts/main_script.js"></script>
+</body>
+
+</html>
